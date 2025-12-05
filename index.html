@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College OS Pro v3.0 - RJIT</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="loginOverlay" class="login-container">
+        <div class="login-box">
+            <div class="logo-large">📚</div>
+            <h1>College OS</h1>
+            <p>RJIT Student Platform v3.0</p>
+            <div class="login-warning">
+                ⚠️ Access restricted to <strong>@rjit.ac.in</strong> emails only.
+            </div>
+            <button id="googleLoginBtn" class="btn btn-google">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path>
+                </svg>
+                Sign in with College ID
+            </button>
+            <p id="loginError" class="error-msg"></p>
+        </div>
+    </div>
+
+    <div class="app-container" id="appContainer" style="display: none;">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">📚</div>
+                <div class="logo-text">
+                    <h2>College OS</h2>
+                    <p>v3.0 RJIT</p>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-label">Main Menu</div>
+                <div class="nav-item active" data-section="dashboard">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" data-section="timetable">
+                    <i data-lucide="calendar-days"></i>
+                    <span>Timetable</span>
+                </div>
+                <div class="nav-item" data-section="attendance">
+                    <i data-lucide="check-circle-2"></i>
+                    <span>Attendance</span>
+                </div>
+                <div class="nav-item" data-section="assignments">
+                    <i data-lucide="file-text"></i>
+                    <span>Assignments</span>
+                </div>
+                <div class="nav-item" data-section="notes">
+                    <i data-lucide="book-open"></i>
+                    <span>Notes</span>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-label">Academics</div>
+                <div class="nav-item" data-section="grades">
+                    <i data-lucide="bar-chart-3"></i>
+                    <span>Grades & CGPA</span>
+                </div>
+                <div class="nav-item" data-section="analytics">
+                    <i data-lucide="trending-up"></i>
+                    <span>Analytics</span>
+                </div>
+                <div class="nav-item" data-section="exams">
+                    <i data-lucide="clipboard-list"></i>
+                    <span>Exams</span>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-label">Collaboration</div>
+                <div class="nav-item" data-section="chat">
+                    <i data-lucide="message-square"></i>
+                    <span>Chat & Teams</span>
+                </div>
+                <div class="nav-item" data-section="community">
+                    <i data-lucide="users"></i>
+                    <span>Community</span>
+                </div>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border);">
+                <div class="nav-item" data-section="profile">
+                    <i data-lucide="user"></i>
+                    <span>Profile</span>
+                </div>
+                <div class="nav-item" id="themeToggle">
+                    <i data-lucide="moon"></i>
+                    <span>Dark Mode</span>
+                </div>
+                <div class="nav-item" id="logoutBtn">
+                    <i data-lucide="log-out"></i>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <h1 id="pageTitle">Dashboard</h1>
+                    <p id="pageSubtitle">Welcome back!</p>
+                </div>
+                <div class="header-right">
+                    <input type="text" class="search-bar" id="searchBar" placeholder="Search assignments, notes...">
+                    <div class="header-actions">
+                        <div class="user-profile" id="userProfileBtn">
+                            <div class="user-avatar" id="headerUserInitials">SK</div>
+                            <div class="user-info">
+                                <p id="headerUserName">Student</p>
+                                <p id="headerUserRole">Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content">
+                <section id="dashboardSection" class="section active">
+                    <div class="alert alert-info">
+                        <i data-lucide="info"></i>
+                        <div>
+                            <strong>Welcome to College OS v3.0!</strong> Data synced from RJIT Database.
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-label">Attendance</div>
+                                    <div class="card-value" id="dashAttendanceVal">--%</div>
+                                </div>
+                                <div class="card-icon"><i data-lucide="check-circle-2"></i></div>
+                            </div>
+                            <div class="card-footer">
+                                <span>Target: 75%</span>
+                                <div class="trend">Calculated</div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-label">CGPA</div>
+                                    <div class="card-value" id="dashCgpaVal">--</div>
+                                </div>
+                                <div class="card-icon"><i data-lucide="award"></i></div>
+                            </div>
+                            <div class="card-footer">
+                                <span>Last Semester</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-label">Assignments</div>
+                                    <div class="card-value" id="dashPendingVal">0</div>
+                                </div>
+                                <div class="card-icon"><i data-lucide="file-text"></i></div>
+                            </div>
+                            <div class="card-footer">
+                                <span>Pending</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-label">Next Class</div>
+                                    <div class="card-value" id="dashNextClass" style="font-size: 18px;">Loading...</div>
+                                </div>
+                                <div class="card-icon"><i data-lucide="calendar-check-2"></i></div>
+                            </div>
+                            <div class="card-footer">
+                                <span id="dashNextTime">--:--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-block">
+                        <h3 style="display: flex; gap: 8px; margin-bottom: 20px;">
+                            <i data-lucide="calendar-days" style="color: var(--primary);"></i>
+                            Today's Schedule
+                        </h3>
+                        <div class="table-responsive">
+                            <table id="dashboardTimetable">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Subject</th>
+                                        <th>Room</th>
+                                        <th>Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="timetableSection" class="section" style="display:none;">
+                    <h2><i data-lucide="calendar-days"></i> Timetable</h2>
+                    <div class="alert alert-info">
+                        <i data-lucide="info"></i>
+                        <div id="timetableAlert">Displaying schedule for your section.</div>
+                    </div>
+                    <div class="container-block">
+                        <div class="table-responsive">
+                            <table id="fullTimetable">
+                                <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Time</th>
+                                        <th>Subject</th>
+                                        <th>Room</th>
+                                        <th>Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="fullTimetableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="attendanceSection" class="section" style="display:none;">
+                    <h2><i data-lucide="check-circle-2"></i> Attendance</h2>
+                    <div class="container-block">
+                        <div class="controls-row">
+                            <button class="btn btn-primary" id="refreshAttendanceBtn"><i data-lucide="refresh-cw"></i> Refresh</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="attendanceTable">
+                                <thead>
+                                    <tr>
+                                        <th>Subject</th>
+                                        <th>Present</th>
+                                        <th>Total</th>
+                                        <th>%</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="attendanceBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="assignmentsSection" class="section" style="display:none;">
+                    <h2><i data-lucide="file-text"></i> Assignments</h2>
+                    <div class="container-block">
+                        <div class="controls-row">
+                            <button class="btn btn-primary" id="openAddAssignmentModal">
+                                <i data-lucide="plus"></i> New Assignment
+                            </button>
+                        </div>
+                        <div class="kanban-board" id="kanbanBoard">
+                            </div>
+                    </div>
+                </section>
+
+                <section id="chatSection" class="section" style="display:none;">
+                    <h2><i data-lucide="message-square"></i> Class Chat</h2>
+                    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 20px; height: 600px;">
+                        <div class="container-block" style="overflow: hidden; display: flex; flex-direction: column;">
+                            <h3 style="margin-bottom: 12px;">Subjects</h3>
+                            <div id="chatRoomList" style="flex: 1; overflow-y: auto;">
+                                </div>
+                        </div>
+                        <div class="container-block" style="display: flex; flex-direction: column;">
+                            <h3 id="currentChatRoomName" style="margin-bottom: 16px;">Select a Room</h3>
+                            <div id="chatMessages" style="flex: 1; overflow-y: auto; margin-bottom: 16px; background: rgba(0,212,255,0.02); border-radius: 8px; padding: 12px;">
+                                </div>
+                            <form id="chatForm" style="display: flex; gap: 8px;">
+                                <input type="text" class="form-input" placeholder="Type message..." id="chatInput" style="margin: 0; flex: 1;">
+                                <button type="submit" class="btn btn-primary btn-icon">
+                                    <i data-lucide="send"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="profileSection" class="section" style="display:none;">
+                    <h2><i data-lucide="user"></i> My Profile</h2>
+                    <div class="container-block">
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" id="profileName" class="form-input" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="text" id="profileEmail" class="form-input" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Branch</label>
+                            <input type="text" id="profileBranch" class="form-input" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Enrollment ID</label>
+                            <input type="text" id="profileEnrollment" class="form-input" readonly>
+                        </div>
+                    </div>
+                </section>
+
+                </main>
+        </div>
+    </div>
+
+    <div class="modal" id="assignmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">New Assignment</h2>
+                <button class="modal-close" id="closeAssModal"><i data-lucide="x"></i></button>
+            </div>
+            <form id="addAssignmentForm">
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" id="assTitle" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <select id="assSubject" class="form-select" required>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Due Date</label>
+                    <input type="date" id="assDate" class="form-input" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attendance-system-config>
+    <system>
+        <name>Advanced Campus Attendance System</name>
+        <institution>RJIT BSF Academy</institution>
+        <version>2.1</version>
+        <academic-year>2025</academic-year>
+        <semester>Fifth Semester</semester>
+    </system>
+
+    <roll-numbers>
+        <range>
+            <type>CS</type>
+            <prefix>0902CS231</prefix>
+            <start>001</start>
+            <end>150</end>
+        </range>
+    </roll-numbers>
+
+    <admin>
+        <username>admin</username>
+        <password>ShiroOni</password>
+    </admin>
+
+    <subjects>
+        <subject code="CS501" name="Theory of Computation"/>
+        <subject code="CS502" name="Database Management System"/>
+        <subject code="CS503" name="Data Analytics"/>
+        <subject code="CS504" name="Internet and Web Development"/>
+        <subject code="CS505" name="Linux Lab"/>
+        <subject code="CS506" name="Python Lab"/>
+        <subject code="CS507" name="Internship-3"/>
+        <subject code="CS508" name="Minor Project"/>
+    </subjects>
+
+    <timetable>
+        <section id="A">
+            <day name="Monday">
+                <slot time="09:10-10:00" subject="CS501" type="Theory" room="S20"/>
+                <slot time="10:00-10:50" subject="CS502" type="Theory" room="S20"/>
+                <slot time="10:50-11:40" subject="CS504" type="Theory" room="S20"/>
+                <slot time="11:40-12:30" subject="CS507" type="Theory" room="S20"/>
+                <slot time="13:20-15:00" subject="CS502 LAB B1+B2" type="Lab" room="CM LAB"/>
+                <slot time="15:00-15:50" subject="SELF STUDY" type="Break" room="-"/>
+            </day>
+            <day name="Tuesday">
+                <slot time="09:10-10:00" subject="CS502" type="Theory" room="S20"/>
+                <slot time="10:00-10:50" subject="CS504" type="Theory" room="S20"/>
+                <slot time="10:50-12:30" subject="CS 506 LAB B1+B2" type="Lab" room="NET LAB"/>
+                <slot time="13:20-15:00" subject="CS503" type="Theory" room="NET LAB"/>
+                <slot time="15:00-15:50" subject="CS 505 LAB B1+B2" type="Lab" room="NET LAB"/>
+            </day>
+            <day name="Wednesday">
+                <slot time="09:10-10:00" subject="CS502" type="Theory" room="S20"/>
+                <slot time="10:00-10:50" subject="CS501" type="Theory" room="S20"/>
+                <slot time="10:50-12:30" subject="CS 501 LAB B1+B2" type="Lab" room="CM LAB"/>
+                <slot time="13:20-15:00" subject="CS 508 LAB B1+B2" type="Lab" room="-"/>
+                <slot time="15:00-15:50" subject="CS 503" type="Theory" room="S21"/>
+            </day>
+            <day name="Thursday">
+                <slot time="09:10-11:40" subject="CS 506 LAB B1+B2" type="Lab" room="CM LAB"/>
+                <slot time="11:40-12:30" subject="CS 507" type="Theory" room="-"/>
+                <slot time="13:20-14:10" subject="CS501" type="Theory" room="S20"/>
+                <slot time="14:10-15:00" subject="CS 503" type="Theory" room="CM LAB"/>
+                <slot time="15:00-15:50" subject="CS504" type="Theory" room="S21"/>
+            </day>
+            <day name="Friday">
+                <slot time="09:10-10:50" subject="CS 508 LAB B1+B2" type="Lab" room="-"/>
+                <slot time="10:50-12:30" subject="CS 505 LAB B1+B2" type="Lab" room="CM LAB"/>
+                <slot time="13:20-14:10" subject="CS 503" type="Theory" room="S21"/>
+                <slot time="14:10-15:00" subject="CS 507" type="Theory" room="-"/>
+                <slot time="15:00-15:50" subject="SELF STUDY" type="Break" room="-"/>
+            </day>
+        </section>
+
+        <section id="B">
+            <day name="Monday">
+                <slot time="09:10-10:50" subject="CS505 LAB B1+B2" type="Lab" room="NET LAB"/>
+                <slot time="10:50-11:40" subject="CS 501" type="Theory" room="S23"/>
+                <slot time="11:40-12:30" subject="SELF STUDY" type="Break" room="-"/>
+                <slot time="13:20-14:10" subject="CS 504" type="Theory" room="NET LAB"/>
+                <slot time="14:10-15:50" subject="CS 506 LAB B1+B2" type="Lab" room="NET LAB"/>
+            </day>
+            <day name="Tuesday">
+                <slot time="09:10-10:50" subject="CS 501 LAB B1+B2" type="Lab" room="NET LAB"/>
+                <slot time="10:50-11:40" subject="CS 502" type="Theory" room="S20"/>
+                <slot time="11:40-12:30" subject="CS 501" type="Theory" room="S20"/>
+                <slot time="13:20-14:10" subject="CS 503" type="Theory" room="CM LAB"/>
+                <slot time="14:10-15:00" subject="CS 507" type="Theory" room="-"/>
+                <slot time="15:00-15:50" subject="SELF STUDY" type="Break" room="-"/>
+            </day>
+            <day name="Wednesday">
+                <slot time="09:10-10:00" subject="CS 504" type="Theory" room="NET LAB"/>
+                <slot time="10:00-10:50" subject="CS 507" type="Theory" room="-"/>
+                <slot time="10:50-12:30" subject="CS 505 B1+B2 NETLAB" type="Lab" room="NET LAB"/>
+                <slot time="13:20-14:10" subject="CS 502" type="Theory" room="S20"/>
+                <slot time="14:10-15:00" subject="SELF STUDY" type="Break" room="-"/>
+                <slot time="15:00-15:50" subject="CS 503" type="Theory" room="S 20"/>
+            </day>
+            <day name="Thursday">
+                <slot time="09:10-10:00" subject="CS 501" type="Theory" room="S 20"/>
+                <slot time="10:00-10:50" subject="CS 507" type="Theory" room="-"/>
+                <slot time="10:50-12:30" subject="CS 502LAB B1+ B2" type="Lab" room="CMLAB"/>
+                <slot time="13:20-14:10" subject="CS 503" type="Theory" room="NET LAB"/>
+                <slot time="14:10-15:50" subject="CS 508 B1+B2" type="Lab" room="-"/>
+            </day>
+            <day name="Friday">
+                <slot time="09:10-10:50" subject="CS 506 LAB B1+B2" type="Lab" room="CM LAB"/>
+                <slot time="10:50-11:40" subject="CS 502" type="Theory" room="S20"/>
+                <slot time="11:40-12:30" subject="CS 504" type="Theory" room="S20"/>
+                <slot time="13:20-14:10" subject="CS 503" type="Theory" room="S20"/>
+                <slot time="14:10-15:50" subject="CS 508 B1+B2" type="Lab" room="-"/>
+            </day>
+        </section>
+    </timetable>
+</attendance-system-config>
