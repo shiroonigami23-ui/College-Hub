@@ -5,7 +5,7 @@
         <institution>RJIT BSF Academy</institution>
         <academic-year>2025</academic-year>
         <semester>Fifth Semester</semester>
-    </system>
+        <semester-start>2025-08-26</semester-start> </system>
 
     <subjects>
         <subject code="CS501" name="Theory of Computation" faculty="Prof. Yograj Sharma"/>
