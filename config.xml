@@ -8,14 +8,14 @@
     </system>
 
     <subjects>
-        <subject code="CS501" name="Theory of Computation"/>
-        <subject code="CS502" name="Database Management System"/>
-        <subject code="CS503" name="Data Analytics"/>
-        <subject code="CS504" name="Internet &amp; Web Tech"/>
-        <subject code="CS505" name="Linux Lab"/>
-        <subject code="CS506" name="Python Lab"/>
-        <subject code="CS507" name="Internship Project"/>
-        <subject code="CS508" name="Minor Project"/>
+        <subject code="CS501" name="Theory of Computation" faculty="Prof. Yograj Sharma"/>
+        <subject code="CS502" name="Database Management System" faculty="Prof. Yashwant Pathak"/>
+        <subject code="CS503" name="Data Analytics" faculty="Prof. Shamiksha Khule"/>
+        <subject code="CS504" name="Internet &amp; Web Tech" faculty="Prof. Vivek Gupta"/>
+        <subject code="CS505" name="Linux Lab" faculty="Prof. Aishwarya Sharma"/>
+        <subject code="CS506" name="Python Lab" faculty="Prof. Vivek Gupta"/>
+        <subject code="CS507" name="Internship Project" faculty="-"/>
+        <subject code="CS508" name="Minor Project" faculty="Dr. Jagdish Makhijani"/>
     </subjects>
 
     <timetable>
