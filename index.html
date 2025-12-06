@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     
     <script src="https://unpkg.com/lucide@latest"></script>
-    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -32,6 +31,7 @@
     </div>
 
     <div class="app-container" id="appContainer" style="display: none;">
+        
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">📚</div>
@@ -44,79 +44,64 @@
             <div class="nav-section">
                 <div class="nav-label">Main Menu</div>
                 <div class="nav-item active" data-section="dashboard">
-                    <i data-lucide="layout-dashboard"></i>
-                    <span>Dashboard</span>
+                    <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
                 </div>
                 <div class="nav-item" data-section="timetable">
-                    <i data-lucide="calendar-days"></i>
-                    <span>Timetable</span>
+                    <i data-lucide="calendar-days"></i> <span>Timetable</span>
                 </div>
                 <div class="nav-item" data-section="attendance">
-                    <i data-lucide="check-circle-2"></i>
-                    <span>Attendance</span>
+                    <i data-lucide="check-circle-2"></i> <span>Attendance</span>
                 </div>
                 <div class="nav-item" data-section="assignments">
-                    <i data-lucide="file-text"></i>
-                    <span>Assignments</span>
+                    <i data-lucide="file-text"></i> <span>Assignments</span>
                 </div>
                 <div class="nav-item" data-section="notes">
-                    <i data-lucide="book-open"></i>
-                    <span>Notes</span>
+                    <i data-lucide="book-open"></i> <span>Notes</span>
                 </div>
             </div>
 
             <div class="nav-section">
                 <div class="nav-label">Academics</div>
                 <div class="nav-item" data-section="grades">
-                    <i data-lucide="bar-chart-3"></i>
-                    <span>Grades &amp; CGPA</span>
+                    <i data-lucide="bar-chart-3"></i> <span>Grades &amp; CGPA</span>
                 </div>
                 <div class="nav-item" data-section="analytics">
-                    <i data-lucide="trending-up"></i>
-                    <span>Analytics</span>
+                    <i data-lucide="trending-up"></i> <span>Analytics</span>
                 </div>
                 <div class="nav-item" data-section="exams">
-                    <i data-lucide="clipboard-list"></i>
-                    <span>Exams</span>
+                    <i data-lucide="clipboard-list"></i> <span>Exams</span>
                 </div>
             </div>
 
             <div class="nav-section">
                 <div class="nav-label">Collaboration</div>
                 <div class="nav-item" data-section="chat">
-                    <i data-lucide="message-square"></i>
-                    <span>Chat &amp; Teams</span>
+                    <i data-lucide="message-square"></i> <span>Chat &amp; Teams</span>
                 </div>
                 <div class="nav-item" data-section="community">
-                    <i data-lucide="users"></i>
-                    <span>Community</span>
+                    <i data-lucide="users"></i> <span>Community</span>
                 </div>
             </div>
 
             <div class="nav-section">
                 <div class="nav-label">Tools</div>
                 <div class="nav-item" data-section="finance">
-                    <i data-lucide="wallet"></i>
-                    <span>Finance &amp; Goals</span>
+                    <i data-lucide="wallet"></i> <span>Finance &amp; Goals</span>
                 </div>
                 <div class="nav-item" data-section="settings">
-                    <i data-lucide="settings"></i>
-                    <span>Settings</span>
+                    <i data-lucide="settings"></i> <span>Settings</span>
                 </div>
             </div>
 
             <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border);">
                 <div class="nav-item" data-section="profile">
-                    <i data-lucide="user"></i>
-                    <span>Profile</span>
+                    <i data-lucide="user"></i> <span>Profile</span>
                 </div>
                 <div class="nav-item" id="themeToggle">
-                    <i data-lucide="moon"></i>
-                    <span>Dark Mode</span>
+                    <i data-lucide="moon"></i> <span>Dark Mode</span>
                 </div>
                 <div class="nav-item" id="logoutBtn">
-                    <i data-lucide="log-out"></i>
-                    <span>Logout</span>
+                    <i data-lucide="log-out"></i> <span>Logout</span>
                 </div>
             </div>
         </aside>
@@ -131,10 +116,10 @@
                     <input type="text" class="search-bar" id="searchBar" placeholder="Search assignments, notes...">
                     <div class="header-actions">
                         <div class="user-profile" id="userProfileBtn">
-                            <div class="user-avatar" id="headerUserInitials">SK</div>
+                            <div class="user-avatar" id="headerUserAvatar">SK</div>
                             <div class="user-info">
                                 <p id="headerUserName">Siddharth Kumar</p>
-                                <p id="headerUserRole">CSE-2024-A</p>
+                                <p id="headerUserRole">Student</p>
                             </div>
                         </div>
                     </div>
@@ -142,96 +127,52 @@
             </header>
 
             <main class="content">
+                
                 <section id="dashboardSection" class="section" style="display:block;">
                     <div class="alert alert-info">
                         <i data-lucide="info"></i>
-                        <div>
-                            <strong>Welcome to College OS v3.0!</strong> Your personal study dashboard for RJIT.
-                        </div>
+                        <div><strong>Welcome to College OS v3.0!</strong> Data synced from RJIT Database.</div>
                     </div>
 
                     <div class="dashboard-grid">
                         <div class="card">
                             <div class="card-header">
-                                <div>
-                                    <div class="card-label">Attendance</div>
-                                    <div class="card-value" id="dashAttendanceVal">--%</div>
-                                </div>
-                                <div class="card-icon">
-                                    <i data-lucide="check-circle-2"></i>
-                                </div>
+                                <div><div class="card-label">Attendance</div><div class="card-value" id="dashAttendanceVal">--%</div></div>
+                                <div class="card-icon"><i data-lucide="check-circle-2"></i></div>
                             </div>
-                            <div class="card-footer">
-                                <span>Target: 75%</span>
-                                <div class="trend">Calculated</div>
-                            </div>
+                            <div class="card-footer"><span>Target: 75%</span><div class="trend">Calculated</div></div>
                         </div>
-
                         <div class="card">
                             <div class="card-header">
-                                <div>
-                                    <div class="card-label">CGPA</div>
-                                    <div class="card-value" id="dashCgpaVal">--</div>
-                                </div>
-                                <div class="card-icon">
-                                    <i data-lucide="award"></i>
-                                </div>
+                                <div><div class="card-label">CGPA</div><div class="card-value" id="dashCgpaVal">--</div></div>
+                                <div class="card-icon"><i data-lucide="award"></i></div>
                             </div>
-                            <div class="card-footer">
-                                <span>Overall performance</span>
-                            </div>
+                            <div class="card-footer"><span>Overall performance</span></div>
                         </div>
-
                         <div class="card">
                             <div class="card-header">
-                                <div>
-                                    <div class="card-label">Pending Tasks</div>
-                                    <div class="card-value" id="dashPendingVal">0</div>
-                                </div>
-                                <div class="card-icon">
-                                    <i data-lucide="file-text"></i>
-                                </div>
+                                <div><div class="card-label">Pending Tasks</div><div class="card-value" id="dashPendingVal">0</div></div>
+                                <div class="card-icon"><i data-lucide="file-text"></i></div>
                             </div>
-                            <div class="card-footer">
-                                <span>Due this week</span>
-                            </div>
+                            <div class="card-footer"><span>Due this week</span></div>
                         </div>
-
                         <div class="card">
                             <div class="card-header">
-                                <div>
-                                    <div class="card-label">Next Class</div>
-                                    <div class="card-value" id="dashNextClass" style="font-size: 18px;">Loading...</div>
-                                </div>
-                                <div class="card-icon">
-                                    <i data-lucide="calendar-check-2"></i>
-                                </div>
+                                <div><div class="card-label">Next Class</div><div class="card-value" id="dashNextClass" style="font-size: 18px;">Loading...</div></div>
+                                <div class="card-icon"><i data-lucide="calendar-check-2"></i></div>
                             </div>
-                            <div class="card-footer">
-                                <span id="dashNextTime">--:--</span>
-                            </div>
+                            <div class="card-footer"><span id="dashNextTime">--:--</span></div>
                         </div>
                     </div>
 
                     <div class="container-block">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                            <h3 style="display: flex; gap: 8px; margin: 0;">
-                                <i data-lucide="calendar-days" style="color: var(--primary);"></i>
-                                Today's Schedule
-                            </h3>
-                        </div>
+                        <h3 style="display: flex; gap: 8px; margin-bottom: 20px;">
+                            <i data-lucide="calendar-days" style="color: var(--primary);"></i> Today's Schedule
+                        </h3>
                         <div class="table-responsive">
                             <table id="dashboardTimetable">
-                                <thead>
-                                    <tr>
-                                        <th>Time</th>
-                                        <th>Subject</th>
-                                        <th>Room</th>
-                                        <th>Type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    </tbody>
+                                <thead><tr><th>Time</th><th>Subject</th><th>Room</th><th>Type</th></tr></thead>
+                                <tbody></tbody>
                             </table>
                         </div>
                     </div>
@@ -241,21 +182,16 @@
                     <h2><i data-lucide="calendar-days"></i> Timetable Management</h2>
                     <div class="alert alert-info">
                         <i data-lucide="info"></i>
-                        <div id="timetableAlert">Your timetable is automatically filtered based on your branch (CSE) and section.</div>
+                        <div id="timetableAlert">Your timetable is automatically filtered based on your branch and section.</div>
                     </div>
                     <div class="container-block">
+                        <div class="controls-row">
+                             <button class="btn btn-primary" id="openAddClassModal"><i data-lucide="plus"></i> Add Class</button>
+                        </div>
                         <div class="table-responsive">
                             <table id="fullTimetable">
-                                <thead>
-                                    <tr>
-                                        <th>Time</th>
-                                        <th>Subject</th>
-                                        <th>Room</th>
-                                        <th>Type</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="fullTimetableBody">
-                                    </tbody>
+                                <thead><tr><th>Time</th><th>Subject</th><th>Faculty</th><th>Room</th><th>Type</th></tr></thead>
+                                <tbody id="fullTimetableBody"></tbody>
                             </table>
                         </div>
                     </div>
@@ -270,18 +206,24 @@
                         <h3 style="margin-bottom: 16px;">Attendance by Subject</h3>
                         <div class="table-responsive">
                             <table id="attendanceTable">
-                                <thead>
-                                    <tr>
-                                        <th>Subject</th>
-                                        <th>Present</th>
-                                        <th>Total</th>
-                                        <th>Percentage</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="attendanceBody">
-                                    </tbody>
+                                <thead><tr><th>Subject</th><th>Present</th><th>Total</th><th>Percentage</th><th>Action</th></tr></thead>
+                                <tbody id="attendanceBody"></tbody>
                             </table>
+                        </div>
+                        <div style="background: rgba(0, 212, 255, 0.05); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-top: 20px;">
+                            <h4 style="margin-bottom: 16px;">Attendance Predictor</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                                <div class="form-group">
+                                    <label class="form-label">Target Attendance %</label>
+                                    <input type="number" class="form-input" id="targetAttendance" value="75" min="0" max="100">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Classes You Can Miss</label>
+                                    <div id="canMissResult" style="padding: 12px; background: rgba(6, 255, 165, 0.1); border: 1px solid var(--success); border-radius: 6px; color: var(--success); font-weight: 600;">
+                                        Calculate to see result
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -306,14 +248,14 @@
                             <h3 style="margin-bottom: 12px;">Subjects</h3>
                             <div id="subjectsList">
                                 </div>
-                            <button class="btn btn-primary" style="width: 100%; margin-top: 16px;">
+                            <button class="btn btn-primary" id="openAddNoteModal" style="width: 100%; margin-top: 16px;">
                                 <i data-lucide="plus"></i> New Note
                             </button>
                         </div>
                         <div class="container-block">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                                 <h3>Notes</h3>
-                                <input type="text" class="form-input" style="width: 200px; margin: 0;" placeholder="Search notes...">
+                                <input type="text" class="form-input" style="width: 200px; margin: 0;" placeholder="Search notes..." id="noteSearch">
                             </div>
                             <div id="notesList">
                                 </div>
@@ -325,14 +267,19 @@
                     <h2><i data-lucide="bar-chart-3"></i> Grades & CGPA</h2>
                     <div class="alert alert-warning">
                         <i data-lucide="lock"></i>
-                        <div><strong>RGPV Result Sync:</strong> Official marks sync is currently disabled.</div>
+                        <div><strong>RGPV Result Sync:</strong> You can sync your official marks once every 6 months.</div>
                     </div>
                     <div class="container-block">
                         <h3 style="margin-bottom: 20px;">CGPA Calculator</h3>
                         <div class="form-group">
                             <label class="form-label">Current CGPA</label>
-                            <input type="number" class="form-input" placeholder="e.g. 8.5">
+                            <input type="number" class="form-input" id="currentCGPA" placeholder="e.g. 8.5">
                         </div>
+                        <div class="form-group">
+                            <label class="form-label">Target CGPA</label>
+                            <input type="number" class="form-input" id="targetCGPA" placeholder="e.g. 9.0">
+                        </div>
+                        <button class="btn btn-primary">Calculate Required SGPA</button>
                     </div>
                 </section>
 
@@ -351,11 +298,12 @@
                     <div class="container-block">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                             <h3>Upcoming Exams</h3>
-                            <button class="btn btn-primary btn-small">
+                            <button class="btn btn-primary btn-small" id="openAddExamModal">
                                 <i data-lucide="plus"></i> Add Exam
                             </button>
                         </div>
-                        <div id="examsList"></div>
+                        <div id="examsList">
+                            </div>
                     </div>
                 </section>
 
@@ -373,9 +321,7 @@
                                 </div>
                             <form id="chatForm" style="display: flex; gap: 8px;">
                                 <input type="text" class="form-input" placeholder="Type message..." id="chatInput" style="margin: 0; flex: 1;">
-                                <button type="submit" class="btn btn-primary btn-icon">
-                                    <i data-lucide="send"></i>
-                                </button>
+                                <button type="submit" class="btn btn-primary btn-icon"><i data-lucide="send"></i></button>
                             </form>
                         </div>
                     </div>
@@ -386,28 +332,42 @@
                     <div class="container-block">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                             <h3>Discussion Threads</h3>
-                            <button class="btn btn-primary btn-small">
+                            <button class="btn btn-primary btn-small" id="openCreatePostModal">
                                 <i data-lucide="plus"></i> New Thread
                             </button>
                         </div>
-                        <div id="communityThreads"></div>
+                        <div id="communityThreads">
+                            </div>
                     </div>
                 </section>
 
                 <section id="financeSection" class="section" style="display:none;">
                     <h2><i data-lucide="wallet"></i> Finance & Goals</h2>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
                         <div class="container-block">
                             <h3 style="margin-bottom: 20px;">Income & Expenses</h3>
                             <div class="form-group">
                                 <label class="form-label">Amount</label>
-                                <input type="number" class="form-input" placeholder="0">
+                                <input type="number" class="form-input" id="expAmount" placeholder="0">
                             </div>
-                            <button class="btn btn-primary" style="width: 100%;">Add</button>
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <select class="form-select" id="expCategory">
+                                    <option>Food</option>
+                                    <option>Books</option>
+                                    <option>Transport</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" style="width: 100%;">Add Transaction</button>
                         </div>
                         <div class="container-block">
                             <h3 style="margin-bottom: 20px;">Goals</h3>
-                            <button class="btn btn-secondary" style="width: 100%;">New Goal</button>
+                            <div id="goalsList">
+                                </div>
+                            <button class="btn btn-secondary" id="openAddGoalModal" style="width: 100%; margin-top: 16px;">
+                                <i data-lucide="plus"></i> New Goal
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -416,15 +376,19 @@
                     <h2><i data-lucide="user"></i> My Profile</h2>
                     <div style="display: grid; grid-template-columns: 300px 1fr; gap: 24px;">
                         <div class="container-block" style="text-align: center;">
-                            <div class="user-avatar" id="profileAvatar" style="width: 100px; height: 100px; font-size: 40px; margin: 0 auto 16px;">SK</div>
+                            <div class="user-avatar" id="profilePageAvatar" style="width: 100px; height: 100px; font-size: 40px; margin: 0 auto 16px;">SK</div>
                             <h3 id="profileNameDisplay">Siddharth Kumar</h3>
-                            <button class="btn btn-primary" style="width: 100%;">Upload Avatar</button>
+                            <p style="color: var(--text-secondary); margin-bottom: 16px;" id="profileEmailDisplay">0902cs231028@rjit.ac.in</p>
+                            
+                            <input type="file" id="avatarUpload" hidden accept="image/*">
+                            <button class="btn btn-primary" id="uploadAvatarBtn" style="width: 100%;">Upload Photo (Local)</button>
                         </div>
+
                         <div class="container-block">
                             <h3 style="margin-bottom: 20px;">Profile Information</h3>
                             <div class="form-group">
                                 <label class="form-label">Full Name</label>
-                                <input type="text" class="form-input" id="profileName" readonly>
+                                <input type="text" class="form-input" id="profileName" value="Siddharth Kumar">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Email</label>
@@ -438,6 +402,11 @@
                                 <label class="form-label">Branch</label>
                                 <input type="text" class="form-input" id="profileBranch" readonly>
                             </div>
+                            <div class="form-group">
+                                <label class="form-label">Semester</label>
+                                <input type="text" class="form-input" id="profileSemester" readonly>
+                            </div>
+                            <button class="btn btn-primary" style="width: 100%;">Save Changes</button>
                         </div>
                     </div>
                 </section>
@@ -450,18 +419,28 @@
                             <div>
                                 <h4 style="margin-bottom: 12px;">Display</h4>
                                 <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-bottom: 12px;">
-                                    <input type="checkbox" checked>
+                                    <input type="checkbox" id="darkModeToggle" checked>
                                     <span>Dark Mode</span>
                                 </label>
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                    <input type="checkbox" checked>
+                                    <span>Compact View</span>
+                                </label>
                             </div>
+
                             <div>
                                 <h4 style="margin-bottom: 12px;">Notifications</h4>
-                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-bottom: 12px;">
                                     <input type="checkbox" checked>
                                     <span>Email Notifications</span>
                                 </label>
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                    <input type="checkbox" checked>
+                                    <span>Browser Notifications</span>
+                                </label>
                             </div>
                         </div>
+                        <button class="btn btn-primary" style="margin-top: 24px;">Save Preferences</button>
                     </div>
                 </section>
             </main>
@@ -485,12 +464,176 @@
                         </select>
                 </div>
                 <div class="form-group">
+                    <label class="form-label">Priority</label>
+                    <select class="form-select" id="assPriority">
+                        <option value="high">🔴 High</option>
+                        <option value="medium">🟡 Medium</option>
+                        <option value="low">🟢 Low</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label class="form-label">Due Date</label>
                     <input type="date" id="assDate" class="form-input" required>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Create</button>
-                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="button" class="btn btn-secondary" id="cancelAssModal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="addClassModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"><i data-lucide="plus"></i> Add Class</h2>
+                <button class="modal-close" id="closeClassModal"><i data-lucide="x"></i></button>
+            </div>
+            <form id="addClassForm">
+                <div class="form-group">
+                    <label class="form-label">Subject Name</label>
+                    <input type="text" class="form-input" placeholder="e.g., Data Structures" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Faculty</label>
+                    <input type="text" class="form-input" placeholder="Faculty name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Room</label>
+                    <input type="text" class="form-input" placeholder="e.g., Lab-201">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Day</label>
+                    <select class="form-select" required>
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Time</label>
+                    <input type="time" class="form-input" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Add Class</button>
+                    <button type="button" class="btn btn-secondary" id="cancelClassModal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="addNoteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"><i data-lucide="plus"></i> New Note</h2>
+                <button class="modal-close" id="closeNoteModal"><i data-lucide="x"></i></button>
+            </div>
+            <form id="addNoteForm">
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <select class="form-select" id="noteSubject" required>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" placeholder="Note title" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Content</label>
+                    <textarea class="form-textarea" placeholder="Note content..." required style="min-height: 100px;"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Note</button>
+                    <button type="button" class="btn btn-secondary" id="cancelNoteModal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="addExamModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"><i data-lucide="plus"></i> Add Exam</h2>
+                <button class="modal-close" id="closeExamModal"><i data-lucide="x"></i></button>
+            </div>
+            <form id="addExamForm">
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <input type="text" class="form-input" placeholder="Subject name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Time</label>
+                    <input type="time" class="form-input" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Add Exam</button>
+                    <button type="button" class="btn btn-secondary" id="cancelExamModal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="addGoalModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"><i data-lucide="plus"></i> New Goal</h2>
+                <button class="modal-close" id="closeGoalModal"><i data-lucide="x"></i></button>
+            </div>
+            <form id="addGoalForm">
+                <div class="form-group">
+                    <label class="form-label">Goal Title</label>
+                    <input type="text" class="form-input" placeholder="e.g., Buy Laptop" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Target Amount (₹)</label>
+                    <input type="number" class="form-input" placeholder="0" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Deadline</label>
+                    <input type="date" class="form-input" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Create Goal</button>
+                    <button type="button" class="btn btn-secondary" id="cancelGoalModal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="createPostModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"><i data-lucide="plus"></i> New Discussion</h2>
+                <button class="modal-close" id="closePostModal"><i data-lucide="x"></i></button>
+            </div>
+            <form id="createPostForm">
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" placeholder="Discussion title" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Category</label>
+                    <select class="form-select" required>
+                        <option>General</option>
+                        <option>Doubts</option>
+                        <option>Resources</option>
+                        <option>Placement</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-textarea" placeholder="What's on your mind?" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Post</button>
+                    <button type="button" class="btn btn-secondary" id="cancelPostModal">Cancel</button>
                 </div>
             </form>
         </div>
@@ -498,7 +641,7 @@
 
     <script type="module" src="js/app.js"></script>
     <script>
-        // Init Icons
+        // Initial Icon Render
         lucide.createIcons();
     </script>
 </body>
