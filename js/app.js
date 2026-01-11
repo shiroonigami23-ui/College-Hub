@@ -28,7 +28,7 @@ import {
 
 // REPLACE WITH YOUR KEYS
 const firebaseConfig = {
-    apiKey: "AIzaSyBKSEoZyaLYRftuzfzn8H68SA6HM1qvOOk",
+    apiKey: "FIREBASE_API_KEY_PLACEHOLDER",
     authDomain: "attendance-app-92ed7.firebaseapp.com",
     projectId: "attendance-app-92ed7",
     storageBucket: "attendance-app-92ed7.firebasestorage.app",
