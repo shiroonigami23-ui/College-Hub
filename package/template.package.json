@@ -1,0 +1,16 @@
+{
+  "name": "college-hub-template",
+  "version": "1.0.0",
+  "description": "Next.js + FastAPI template for college portals",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shiroonigami23-ui/College-Hub"
+  },
+  "artifacts": [
+    {
+      "id": "source-template",
+      "path": "dist/college-hub-template-v1.0.0.zip",
+      "kind": "source"
+    }
+  ]
+}

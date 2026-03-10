@@ -1,63 +1,63 @@
-# 🎓 College OS Pro v3.0 (College Hub)
+# College Hub Template
 
-![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)
-![Status](https://img.shields.io/badge/status-live-success.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+A production-ready **Next.js + FastAPI** starter for college portals.
 
-**College OS** is a comprehensive, centralized platform designed specifically for students of **RJIT**. It replaces scattered WhatsApp groups and static PDFs with a dynamic, interactive dashboard that manages attendance, timetables, assignments, and peer collaboration in real-time.
+This template gives you a clean baseline for:
+- campus announcements
+- events calendar and registration links
+- academic resources repository
+- club directory and student info blocks
 
-🔗 **Live Demo:** [https://shiroonigami23-ui.github.io/College-Hub/](https://shiroonigami23-ui.github.io/College-Hub/)
+## Stack
+- **Frontend:** Next.js 14 (App Router), TypeScript, Tailwind CSS
+- **Backend:** FastAPI, Pydantic, Uvicorn
+- **Dev DX:** GitHub Actions CI, script-based packaging
 
----
+## Monorepo Layout
+- `apps/web` -> Next.js UI
+- `services/api` -> FastAPI backend
+- `.github/workflows` -> CI pipeline
+- `scripts/package.ps1` -> source package generator
 
-## ✨ Key Features
+## Quick Start
+### 1) Backend
+```bash
+cd services/api
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# Linux/macOS: source .venv/bin/activate
+pip install -e .
+uvicorn app.main:app --reload --port 8000
+```
 
-### 🔐 Security & Access
-* **Domain-Locked Login:** Strictly restricted to official college email IDs (`@rjit.ac.in`).
-* **Smart Identity Parsing:** Automatically extracts your **Branch**, **Semester**, **Year**, and **Section** directly from your enrollment ID/Email. No manual setup required!
+### 2) Frontend
+```bash
+cd apps/web
+npm install
+npm run dev
+```
 
-### 📊 Academic Management
-* **Dynamic Dashboard:** Real-time overview of attendance, pending tasks, and your next upcoming class.
-* **Smart Timetable:** Loads your specific class schedule based on your section (A/B) from a central XML configuration.
-* **Attendance Tracker:** Visualizes attendance percentages with "Safe/Danger" indicators and a calculator to predict how many classes you can skip.
-* **Assignment Kanban Board:** Drag-and-drop style board (To-Do, In Progress, Done) for managing assignments.
+### 3) Open
+- Web: `http://localhost:3000`
+- API docs: `http://localhost:8000/docs`
 
-### 🤝 Collaboration
-* **Real-Time Chat Rooms:** specific chat rooms for every subject (e.g., CS501, CS502) to discuss doubts and share resources.
-* **Community Forums:** Global threads for college-wide announcements and discussions.
+## Environment
+- Copy `apps/web/.env.example` to `apps/web/.env.local`
+- Optional: set `NEXT_PUBLIC_API_BASE_URL`
 
-### 🧠 Productivity Tools
-* **Notes Hub:** Organized repository for subject-wise notes.
-* **CGPA Calculator:** Estimate your Semester and Cumulative Grade Point Average.
-* **Finance Tracker:** Track daily expenses and set savings goals.
+## Customization Guide
+1. Edit `services/api/app/data.py` with your college-specific seed data.
+2. Update cards/sections in `apps/web/app/page.tsx`.
+3. Rename branding in `apps/web/app/layout.tsx`.
+4. Add auth/DB integrations as needed.
 
-### 🎨 UI/UX
-* **Glassmorphism Design:** Modern, translucent aesthetic with blurred backgrounds.
-* **Dark Mode:** Fully supported system-wide dark theme (default).
-* **Responsive:** Works seamlessly on Desktop, Tablet, and Mobile.
+## CI
+GitHub Actions validates:
+- API import + tests
+- Frontend build
 
----
-
-## 🛠️ Technology Stack
-
-* **Frontend:** HTML5, CSS3 (Custom Glassmorphism), JavaScript (ES6 Modules).
-* **Backend / Database:** Firebase Firestore (NoSQL Real-time Database).
-* **Authentication:** Firebase Authentication (Google Sign-In).
-* **Configuration:** XML (for centralized Timetable & Syllabus management).
-* **Icons:** Lucide Icons.
-
----
-
-## 📂 Project Structure
-
-```text
-/College-Hub
-│
-├── index.html          # Main application entry point
-├── config.xml          # Configuration file for Timetables & Subjects
-│
-├── css/
-│   └── style.css       # Complete styling (Glassmorphism & Responsive)
-│
-└── js/
-    └── app.js          # Core logic (Auth, Parsing, Firebase, Chat)
+## Packaging
+```powershell
+./scripts/package.ps1 -Version 1.0.0
+```
+Creates `dist/college-hub-template-v1.0.0.zip`.

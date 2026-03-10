@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: college-hub-api
+Version: 1.0.0
+Summary: FastAPI backend for College Hub template
+Requires-Python: >=3.10
+Requires-Dist: fastapi>=0.115.6
+Requires-Dist: uvicorn>=0.34.0
+Requires-Dist: pydantic>=2.10.4
+Requires-Dist: pytest>=8.3.4

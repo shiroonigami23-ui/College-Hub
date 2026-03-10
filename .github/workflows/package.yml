@@ -1,0 +1,21 @@
+name: Package Template
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build source package
+        shell: pwsh
+        run: ./scripts/package.ps1
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: college-hub-template
+          path: dist/college-hub-template-v*.zip
